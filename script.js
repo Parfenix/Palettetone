@@ -12,7 +12,10 @@ function generateRandomColor() {
 
 function getRandomColors(){
     cosl.forEach( (col ) => {
-      col.style.background = generateRandomColor()  //  код для изменения  цвета на фоне     
+        const text  = col.querySelector('h2')
+        const color = generateRandomColor()
+        text.textContent= color  // цифры с цветами  
+      col.style.background = color  //  код для изменения  цвета на фоне     
     } )
     }
 getRandomColors()
