@@ -8,7 +8,6 @@ const generateRandomColor = () => {
   }
   return `#${color}`;
 };
-
 const getRandomColors = () => {
   cosl.forEach((column) => {
     column.style.background = generateRandomColor();
