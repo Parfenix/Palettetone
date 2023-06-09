@@ -13,12 +13,14 @@ body {
 
 .column {
  border: 1px solid black;
- flex: 2;
+ flex: 1;
  display: flex;
  background: #ccc;
  flex-direction: column;
  justify-content:space-around;
- align-items:baseline;
+ align-items :center;
+ padding-top: 80vh;
+
 }
 
 .column h2 {
@@ -26,6 +28,8 @@ body {
  color: #fff;
  border-radius: 10px;
  transition: background 0.3s;  
+ size: 24px;
+
 }
 
 .column h2:hover {
@@ -43,7 +47,5 @@ body {
  color: #fff;
  padding: 10px;
  border-radius: 10px;
- transition: background 0.3s;    
+ transition: background 0.3s;   
 }
-
-

@@ -1,5 +1,4 @@
-const cosl = document.querySelectorAll('.column');
-
+const columnl = document.querySelectorAll('.column');
 const generateRandomColor = () => {
   const hexCodes = '0123456789ABCDEF';
   let color = '';
@@ -9,7 +8,10 @@ const generateRandomColor = () => {
   return `#${color}`;
 };
 const getRandomColors = () => {
-  cosl.forEach((column) => {
+  columnl.forEach((column) => {
+    const text = column.querySelector('h2');
+    const color = generateRandomColor();
+    text.textContent = color;
     column.style.background = generateRandomColor();
   });
 };
