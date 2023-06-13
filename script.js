@@ -1,3 +1,5 @@
+import chroma from "chroma-js";
+
 const columnl = document.querySelectorAll('.column');
 const generateRandomColor = () => {
   const hexCodes = '0123456789ABCDEF';
@@ -15,4 +17,5 @@ const getRandomColors = () => {
     column.style.background = generateRandomColor();
   });
 };
+
 getRandomColors();
