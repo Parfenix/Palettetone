@@ -25,21 +25,21 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-lock_close_icon_black:before {
+.icon-lock-close-icon-black:before {
   content: "\e900";
 }
-.icon-lock_open_v2_black:before {
+.icon-lock-open-v2-black:before {
   content: "\e901";
 }
-.icon-copy_icon_black:before {
+.icon-copy-icon-black:before {
   content: "\e902";
 }
-.icon-lock_open_v2:before {
+.icon-lock-open-v2:before {
   content: "\e903";
 }
-.icon-lock_close_icon:before {
+.icon-lock-close-icon:before {
   content: "\e904";
 }
-.icon-copy_icon:before {
+.icon-copy-icon:before {
   content: "\e905";
 }
