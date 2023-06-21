@@ -1,12 +1,24 @@
 const columnl = document.querySelectorAll('.column');
 
-
 document.addEventListener('keydown', (event) => {
   if (event.code.toLowerCase() === 'space') {
     getRandomColors();
   };
 });
 
+document.addEventListener('click', (event) => {
+  const type = event.target.dataset.type
+
+  if (type === 'lock'){
+    const node = 
+    event.target.tagName.toLowerCase() === 'i'
+    ? event.target
+    : event.target.children[0]
+
+    node.classList.toggle('icon-lock-open-v2');
+    node.classList.toggle('icon-lock-close-icon');
+  };
+});
 
 
 const getRandomColors = () => {
