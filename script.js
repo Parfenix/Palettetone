@@ -1,6 +1,7 @@
 const columnl = document.querySelectorAll('.column');
 
 document.addEventListener('keydown', (event) => {
+  event.preventDefault();
   if (event.code.toLowerCase() === 'space') {
     getRandomColors();
   };
