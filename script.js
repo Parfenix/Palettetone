@@ -1,4 +1,4 @@
-const column = document.querySelectorAll('.column');
+const columns  = document.querySelectorAll('.column');
 
 const setTextColor = (text, color) => {
   const luminance = chroma(color).luminance();
