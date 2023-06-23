@@ -1,45 +1,48 @@
-const columnl = document.querySelectorAll('.column');
+const column = document.querySelectorAll('.column');
 
-document.addEventListener('keydown', (event) => {
-  event.preventDefault();
-  if (event.code.toLowerCase() === 'space') {
-    getRandomColors();
-  };
-});
-
-document.addEventListener('click', (event) => {
-  const type = event.target.dataset.type
-
-  if (type === 'lock'){
-    const node = 
-    event.target.tagName.toLowerCase() === 'i'
-    ? event.target
-    : event.target.children[0]
-
-    node.classList.toggle('icon-lock-open-v2');
-    node.classList.toggle('icon-lock-close-icon');
-  };
-});
-
+const setTextColor = (text, color) => {
+  const luminance = chroma(color).luminance();
+  text.style.color = luminance > 0.5 ? 'black' : 'white';
+};
 
 const getRandomColors = () => {
-  columnl.forEach((column) => {
+  columns.forEach((column) => {
+    const isLocked = column.querySelector('i').classList.contains('icon-lock-close-icon');
     const text = column.querySelector('h2');
-    const button = column.querySelector("button");
+    const button = column.querySelector('button');
     const color = chroma.random();
+
+    if (isLocked) {
+      return;
+    }
+
     text.textContent = color;
     column.style.background = color;
-
 
     setTextColor(text, color);
     setTextColor(button, color);
   });
 };
 
+document.addEventListener('keydown', (event) => {
+  event.preventDefault();
+  if (event.code.toLowerCase() === 'space') {
+    getRandomColors();
+  }
+});
 
-const setTextColor = (text, color) => {
-  const luminance = chroma(color).luminance();
-  text.style.color = luminance > 0.5 ? 'black' : 'white';
-};
+document.addEventListener('click', (event) => {
+  const type = event.target.dataset.type
+
+  if (type === 'lock') {
+    const node =
+      event.target.tagName.toLowerCase() === 'i'
+        ? event.target
+        : event.target.children[0];
+
+    node.classList.toggle('icon-lock-open-v2');
+    node.classList.toggle('icon-lock-close-icon');
+  }
+});
 
 getRandomColors();
