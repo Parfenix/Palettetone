@@ -1,4 +1,4 @@
-const columns  = document.querySelectorAll('.column');
+const columns = document.querySelectorAll('.column');
 
 const setTextColor = (text, color) => {
   const luminance = chroma(color).luminance();
@@ -24,6 +24,10 @@ const getRandomColors = () => {
   });
 };
 
+const copyToClipboard = (text) => {
+  return navigator.clipboard.writeText(text);
+};
+
 document.addEventListener('keydown', (event) => {
   event.preventDefault();
   if (event.code.toLowerCase() === 'space') {
@@ -42,6 +46,8 @@ document.addEventListener('click', (event) => {
 
     node.classList.toggle('icon-lock-open-v2');
     node.classList.toggle('icon-lock-close-icon');
+  } else if (type === 'copy') {
+    copyToClipboard(event.target.textContent);
   }
 });
 
