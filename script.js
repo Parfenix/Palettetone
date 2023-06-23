@@ -68,11 +68,14 @@ document.addEventListener('click', (event) => {
   }
 });
 
-const updateColorsHash = (colors = []) => {
-  document.location.hash = colors.map(columns => {
-    return columns.toString().substring(1)
-  }).join('-')
-}
+
+const getRandomColors = () => {
+  columnl.forEach((column) => {
+    const text = column.querySelector('h2');
+    const button = column.querySelector("button");
+    const color = chroma.random();
+    text.textContent = color;
+    column.style.background = color;
 
 
  const getColorsFromHash = () => {
