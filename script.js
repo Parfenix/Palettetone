@@ -5,15 +5,29 @@ const setTextColor = (text, color) => {
   text.style.color = luminance > 0.5 ? 'black' : 'white';
 };
 
-const getRandomColors = () => {
-  columns.forEach((column) => {
+const getRandomColors = (isInitial) => {
+  const colors = isInitial ? getColorsFromHash() :  []
+
+  columns.forEach((column , index) => {
     const isLocked = column.querySelector('i').classList.contains('icon-lock-close-icon');
     const text = column.querySelector('h2');
     const button = column.querySelector('button');
-    const color = chroma.random();
-
+    
     if (isLocked) {
+      colors.push(text.textContent)
       return;
+    }
+
+
+    const color = isInitial 
+    ? colors[index] 
+     ? colors[index]
+     : chroma.random() 
+    : chroma.random();
+    
+    if (!isInitial) {
+
+      colors.push(color)
     }
 
     text.textContent = color;
@@ -22,7 +36,10 @@ const getRandomColors = () => {
     setTextColor(text, color);
     setTextColor(button, color);
   });
+
+  updateColorsHash(colors)
 };
+
 
 const copyToClipboard = (text) => {
   return navigator.clipboard.writeText(text);
@@ -51,4 +68,21 @@ document.addEventListener('click', (event) => {
   }
 });
 
-getRandomColors();
+const updateColorsHash = (colors = []) => {
+  document.location.hash = colors.map(columns => {
+    return columns.toString().substring(1)
+  }).join('-')
+}
+
+
+ const getColorsFromHash = () => {
+  if (document.location.hash.length > 1) {
+
+    return document.location.hash.substring(1).split('-').map(color => '#' + color)
+  }
+  return []
+ } 
+  
+
+
+getRandomColors(true);
