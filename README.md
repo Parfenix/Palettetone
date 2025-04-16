@@ -10,4 +10,3 @@ Hi! This is our first joint project of Group No. 30. In this project, we have cr
 
   4.In order to share the finished palette with someone, copy the Url link to the clipboard;
   
-  5.jpirisdhejgbouiwbpoweinhjbiodert;hjnbo;jvgnerowi;bvgnhwerp;gnwepihbjpwsjbvg'epiohjbwpskbghetpo'hjue-hb
